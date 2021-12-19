@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity implements SendTextListener{
     private void initView() {
         getSupportFragmentManager().beginTransaction().add(R.id.send_fragment_container, SendFragment.getInstance()).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.receive_fragment_container, ReceivedFragment.getInstance()).commit();
-        SendFragment.getInstance().setSendTextListener(this);
+        
+	/** https://viettuts.vn/java-new-features/toan-tu-dau-2-cham-trong-java-8
+         * Toán tử dấu 2 chấm (::) trong Java hay còn được gọi là toán tử tham chiếu phương thức trong java.
+         * */
+	SendFragment.getInstance().setSendTextListener(this::sendText);
     }
 
     @Override
